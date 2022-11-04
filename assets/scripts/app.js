@@ -2,21 +2,38 @@ const products = [
 
 ];
 
-const productList = {
-    products: [
-        { 
-            title: 'A pillow',
-            imageUrl: 'https://m.media-amazon.com/images/I/61XxtPdqhZL.jpg',
-            price: 19.99,
-            description: 'A soft pillow!'  
-        },
-        { 
-           title: 'A carpet',
-           imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Wollteppich_1.jpg',
-           price: 59.99,
-           description: 'A great carpet!'  
-        },
-    ],
+class Product {
+    // title = 'DEFAULT';
+    // imageUrl;
+    // description;
+    // price;
+
+    constructor(titleArg, imageArg, descriptionArg, priceArg) {
+        this.title = titleArg;
+        this.imageUrl = imageArg;
+        this.description = descriptionArg;
+        this.price = priceArg;
+    }
+};
+
+class ProductList {
+    products = [
+        new Product(
+            'A pillow',
+            'https://m.media-amazon.com/images/I/61XxtPdqhZL.jpg',
+            'A soft pillow!',
+            19.99
+        ),
+        new Product(
+            'A carpet',
+            'https://upload.wikimedia.org/wikipedia/commons/e/e7/Wollteppich_1.jpg',
+            'A great carpet!',
+            59.99
+        ),
+    ];
+
+    constructor() {};
+
     render() {
         const renderHook = document.getElementById('app');
         const prodList = document.createElement('ul');
@@ -40,5 +57,7 @@ const productList = {
         }
         renderHook.append(prodList);
     }
-};
+}
+
+const productList = new ProductList();
 productList.render();
